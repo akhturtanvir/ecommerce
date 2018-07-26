@@ -2,11 +2,9 @@
     include_once "common/header.php";
 ?>
 
-<!-- header start -->
 <?php
     include_once "common/navbar.php";
 ?>
-<!-- header end -->
 
 
     <!-- slider start -->
@@ -25,7 +23,7 @@
                             <h2 class="title2">new arrivals !</h2>
                             <h3 class="title3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt <br> doloremque maiores odit
                                 perferendis unde et</h3>
-                            <a class="btn-hover" href="shop-page.html">shop now <i class="fa fa-angle-double-right"></i></a>
+                            <a class="btn-hover" href="shop-page.php">shop now <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +37,7 @@
                             <h2 class="title2">new arrivals !</h2>
                             <h3 class="title3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt <br> doloremque maiores odit
                                 perferendis unde et</h3>
-                            <a class="btn-hover" href="shop-page.html">shop now <i class="fa fa-angle-double-right"></i></a>
+                            <a class="btn-hover" href="shop-page.php">shop now <i class="fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -365,7 +363,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a class="hvr-shutter-out-horizontal" href="shop-page.html">view more <i class="fa fa-angle-double-right"></i></a>
+                <a class="hvr-shutter-out-horizontal" href="shop-page.php">view more <i class="fa fa-angle-double-right"></i></a>
             </div>
         </div>
     </div>
@@ -379,7 +377,7 @@
                         <div class="offer-text text-center">
                             <h3>unlimited offer</h3>
                             <div class="text-center">
-                                <a class="hvr-shutter-out-horizontal" href="shop-page.html">shop now <i class="fa fa-angle-double-right"></i></a>
+                                <a class="hvr-shutter-out-horizontal" href="shop-page.php">shop now <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -609,31 +607,14 @@
     <!-- blog area end -->
 
 
-<!-- subscribe area start -->
 <?php
     include_once "common/subscribe.php";
 ?>
-<!-- subscribe area end -->
 
-
-
-<!-- footer area start -->
 <?php
     include_once "common/footer.php";
 ?>
-<!-- footer area end -->
 
-
-<!-- all js here -->
-<script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.meanmenu.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.validate.min.js"></script>
-<script src="lib/js/jquery.nivo.slider.js"></script>
-<script src="lib/home.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
+<?php
+    include_once "common/jScript.php";
+?>

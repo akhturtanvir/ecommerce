@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-3 col-xs-6">
                     <div class="logo">
-                        <a href="index-2.html">
+                        <a href="index.php">
                             <img src="assets/img/logo/logo-black.png" alt="">
                         </a>
                     </div>
@@ -34,10 +34,10 @@
                             <div class="currence-user-page">
                                 <div class="user-page">
                                     <ul>
-                                        <li><a href="wishlist.html"><i class="pe-7s-like"></i> My Wishlist</a></li>
-                                        <li><a href="checkout.html"><i class="pe-7s-check"></i> Checkout</a></li>
-                                        <li><a href="login.html"><i class="pe-7s-next-2"></i> Sign In</a></li>
-                                        <li><a href="register.html"><i class="pe-7s-add-user"></i> Create an account</a></li>
+                                        <li><a href="wishlist.php"><i class="pe-7s-like"></i> My Wishlist</a></li>
+                                        <li><a href="checkout.php"><i class="pe-7s-check"></i> Checkout</a></li>
+                                        <li><a href="login.php"><i class="pe-7s-next-2"></i> Sign In</a></li>
+                                        <li><a href="register.php"><i class="pe-7s-add-user"></i> Create an account</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="shopping-cart f-right">
-                            <a class="top-cart" href="cart.html"><i class="pe-7s-cart"></i></a>
+                            <a class="top-cart" href="cart.php"><i class="pe-7s-cart"></i></a>
                             <span>01</span>
                             <ul>
                                 <li>
@@ -95,8 +95,8 @@
                                 </li>
                                 <li>
                                     <p class="buttons">
-                                        <a class="my-cart" href="cart.html">View Cart</a>
-                                        <a class="checkout" href="checkout.html">Checkout</a>
+                                        <a class="my-cart" href="cart.php">View Cart</a>
+                                        <a class="checkout" href="checkout.php">Checkout</a>
                                     </p>
                                 </li>
                             </ul>
@@ -104,22 +104,22 @@
                         <div class="main-menu f-right">
                             <nav>
                                 <ul>
-                                    <li><a href="index-2.html">home</a>
+                                    <li><a href="index.php">home</a>
                                         <ul class="dropdown">
                                             <li><a href="index-2.html">home version 1 </a></li>
                                             <li><a href="index-3.html">home version 2 </a></li>
                                             <li><a href="index-4.html">home version 3 </a></li>
                                         </ul>
                                     </li>
-                                    <li class="mega-position"><a href="shop-page.html">Shop </a>
+                                    <li class="mega-position"><a href="shop-page.php">Shop </a>
                                         <div class="mega-menu mega-4-colm">
                                             <ul>
                                                 <li class="menu-title uppercase">Clothings</li>
-                                                <li><a href="shop-page.html">Dresses</a></li>
-                                                <li><a href="shop-page.html">Tops</a></li>
-                                                <li><a href="shop-page.html">skirt</a></li>
-                                                <li><a href="shop-page.html">cardigan</a></li>
-                                                <li><a href="shop-page.html">Outerwear</a></li>
+                                                <li><a href="shop-page.php">Dresses</a></li>
+                                                <li><a href="shop-page.php">Tops</a></li>
+                                                <li><a href="shop-page.php">skirt</a></li>
+                                                <li><a href="shop-page.php">cardigan</a></li>
+                                                <li><a href="shop-page.php">Outerwear</a></li>
                                             </ul>
                                             <ul>
                                                 <li class="menu-title uppercase">Jewelry</li>
@@ -144,7 +144,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="mega-position"><a href="shop-page.html">man </a>
+                                    <li class="mega-position"><a href="shop-page.php">man </a>
                                         <div class="mega-menu mega-3-colm">
                                             <ul>
                                                 <li class="menu-title uppercase">Clothings</li>
@@ -196,7 +196,7 @@
                                             <li><a href="blog-details.html">blog-details </a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="contact.php">contact</a></li>
                                 </ul>
                             </nav>
                         </div>
