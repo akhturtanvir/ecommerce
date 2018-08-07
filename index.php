@@ -1,5 +1,6 @@
 <?php
     include_once "common/header.php";
+    include_once "classes/Product.php";
 ?>
 
 <?php
@@ -105,28 +106,61 @@
             </div>
             <div class="shop-menu portfolio-left-menu text-center mb-50">
                 <button class="active" data-filter="*">ALL</button>
-                <button data-filter=".mix1">Dresses </button>
+                <button data-filter=".mix1">Clothing </button>
                 <button data-filter=".mix2">Bags</button>
                 <button data-filter=".mix3">Jewelry </button>
-                <button data-filter=".mix4">Shoes </button>
+                <button data-filter=".mix4">WATCHES </button>
             </div>
             <div class="row portfolio-style-2">
                 <div class="grid">
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix1 mb-50">
+
+                    <?php
+
+                        $pd = new Product();
+                        $getFProduct = $pd->getFeaturedProduct();
+                        if ($getFProduct) {
+                          $i = 0;
+                          foreach ($getFProduct as $data) {
+                            $i++;
+
+                    ?>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mb-50
+
+                    <?php
+                    if ($data['catName'] == 'Clothing'){
+                    ?>
+                        mix1
+
+                    <?php }elseif ($data['catName'] == 'Bags'){ ?>
+
+                        mix2
+
+                    <?php }elseif ($data['catName'] == 'Jewelary'){ ?>
+
+                        mix3
+
+                    <?php }elseif ($data['catName'] == 'Watches'){ ?>
+
+                        mix4
+
+                    <?php } ?>
+
+                    ">
                         <div class="single-shop">
                             <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/1.jpg" alt="" /></a>
+                                <a href="details.php?productId=<?php echo $data['productId'] ?>"><img src="Admin/<?php echo $data['image'] ?>" style="height: 300px; width: 300px;" alt="" /></a>
                                 <div class="price-up-down">
                                     <span class="sale-new">sale</span>
                                 </div>
                                 <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
+                                    <a href="cart.php?productId=<?php echo $data['productId'] ?>" title="Add to Cart">
                                         <i class="pe-7s-cart"></i>
                                     </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
+                                    <a href="wishlist.php?productId=<?php echo $data['productId'] ?>" class="wishlist" title="Wishlist">
                                         <i class="pe-7s-like"></i>
                                     </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                    <a href="details.php?productId=<?php echo $data['productId'] ?>"title="Details">
                                         <i class="pe-7s-look"></i>
                                     </a>
                                 </div>
@@ -134,236 +168,28 @@
                             <div class="shop-text-all">
                                 <div class="title-color fix">
                                     <div class="shop-title f-left">
-                                        <h3><a href="#">Tops</a></h3>
+                                        <h3><a href="#"><?php echo $data['catName']; ?></a></h3>
                                     </div>
                                     <div class="price f-right">
-                                        <span class="new">$120.00</span>
+                                        <span class="new">$<?php echo $data['price']; ?></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix2 mix3 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/2.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">sale</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">Handbag</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$150.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix1 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/3.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">-30%</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">Perfume</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$180.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix2 mix4 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/4.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">new</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">Shirt</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$220.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix1 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/5.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">-20%</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">Handbag</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$430.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix3 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/6.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">sale</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">T-Shirt</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$230.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix2 mix3 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/7.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">sale</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">Watch</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$650.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 grid-item mix1 mix4 mb-50">
-                        <div class="single-shop">
-                            <div class="shop-img">
-                                <a href="#"><img src="assets/img/shop/equal/8.jpg" alt="" /></a>
-                                <div class="price-up-down">
-                                    <span class="sale-new">sale</span>
-                                </div>
-                                <div class="button-group">
-                                    <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
-                                    <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                        <i class="pe-7s-like"></i>
-                                    </a>
-                                    <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="shop-text-all">
-                                <div class="title-color fix">
-                                    <div class="shop-title f-left">
-                                        <h3><a href="#">Bag</a></h3>
-                                    </div>
-                                    <div class="price f-right">
-                                        <span class="new">$120.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                          <?php
+
+                            }}else{
+                                echo "<h4>Data not Found</h4>";
+                            }
+
+                          ?>
+
                 </div>
             </div>
             <div class="text-center">
-                <a class="hvr-shutter-out-horizontal" href="shop-page.php">view more <i class="fa fa-angle-double-right"></i></a>
+                <a class="hvr-shutter-out-horizontal" href="shopPage.php">view more <i class="fa fa-angle-double-right"></i></a>
             </div>
         </div>
     </div>
@@ -394,22 +220,33 @@
             </div>
             <div class="row">
                 <div class="special-slider-active owl-carousel">
+
+                    <?php
+                    
+                        $getNProduct = $pd->getNewProduct();
+                        if ($getNProduct) {
+                          $i = 0;
+                          foreach ($getNProduct as $data) {
+                            $i++;
+
+                    ?>
+
                     <div class="single-special-slider">
                         <div class="col-lg-12 col-md-12 col-xs-12">
                             <div class="single-shop">
                                 <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/1.jpg" alt="" /></a>
+                                    <a href="details.php?productId=<?php echo $data['productId'] ?>"><img src="Admin/<?php echo $data['image'] ?>" style="height: 300px; width: 300px;" alt="" /></a>
                                     <div class="price-up-down">
                                         <span class="sale-new">new</span>
                                     </div>
                                     <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
+                                        <a href="cart.php?productId=<?php echo $data['productId'] ?>" title="Add to Cart">
                                             <i class="pe-7s-cart"></i>
                                         </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
+                                        <a href="wishlist.php?productId=<?php echo $data['productId'] ?>" class="wishlist" title="Wishlist">
                                             <i class="pe-7s-like"></i>
                                         </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
+                                        <a href="details.php?productId=<?php echo $data['productId'] ?>" title="Details">
                                             <i class="pe-7s-look"></i>
                                         </a>
                                     </div>
@@ -417,115 +254,24 @@
                                 <div class="shop-text-all">
                                     <div class="title-color fix">
                                         <div class="shop-title f-left">
-                                            <h3><a href="#">Tops</a></h3>
+                                            <h3><a href="#"><?php echo $data['catName']; ?></a></h3>
                                         </div>
                                         <div class="price f-right">
-                                            <span class="new">$120.00</span>
+                                            <span class="new">$<?php echo $data['price']; ?></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="single-shop">
-                                <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/2.jpg" alt="" /></a>
-                                    <div class="price-up-down">
-                                        <span class="sale-new">new</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-cart"></i>
-                                        </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                            <i class="pe-7s-look"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="shop-text-all">
-                                    <div class="title-color fix">
-                                        <div class="shop-title f-left">
-                                            <h3><a href="#">Handbag</a></h3>
-                                        </div>
-                                        <div class="price f-right">
-                                            <span class="new">$670.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="single-shop">
-                                <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/3.jpg" alt="" /></a>
-                                    <div class="price-up-down">
-                                        <span class="sale-new">new</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-cart"></i>
-                                        </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                            <i class="pe-7s-look"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="shop-text-all">
-                                    <div class="title-color fix">
-                                        <div class="shop-title f-left">
-                                            <h3><a href="#">Perfume</a></h3>
-                                        </div>
-                                        <div class="price f-right">
-                                            <span class="new">$340.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-special-slider">
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="single-shop">
-                                <div class="shop-img">
-                                    <a href="#"><img src="assets/img/shop/equal/4.jpg" alt="" /></a>
-                                    <div class="price-up-down">
-                                        <span class="sale-new">new</span>
-                                    </div>
-                                    <div class="button-group">
-                                        <a href="#" title="Add to Cart" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-cart"></i>
-                                        </a>
-                                        <a class="wishlist" href="#" title="Wishlist" data-toggle="modal" data-target="#quick-view">
-                                            <i class="pe-7s-like"></i>
-                                        </a>
-                                        <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View">
-                                            <i class="pe-7s-look"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="shop-text-all">
-                                    <div class="title-color fix">
-                                        <div class="shop-title f-left">
-                                            <h3><a href="#">Shirt</a></h3>
-                                        </div>
-                                        <div class="price f-right">
-                                            <span class="new">$230.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                        <?php
+
+                            }}else{
+                                echo "<h4>Data not Found</h4>";
+                            }
+
+                        ?>
                 </div>
             </div>
         </div>

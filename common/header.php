@@ -1,3 +1,11 @@
+<?php
+
+    $filepath = realpath(dirname(__FILE__));
+    include_once $filepath . '/../classes/Session.php';
+    // include_once  $filepath. '/../classes/Product.php';
+    Session::init();
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>

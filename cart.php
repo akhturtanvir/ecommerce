@@ -1,10 +1,12 @@
 <?php
     include_once "common/header.php";
+    include_once "classes/Cart.php";
 ?>
 
 <?php
     include_once "common/navbar.php";
 ?>
+
 <!-- breadcrumbs start -->
 <div class="breadcrumbs-area breadcrumb-bg ptb-100">
     <div class="container">
@@ -12,7 +14,7 @@
             <h2 class="breadcrumb-title">shopping cart</h2>
             <ul>
                 <li>
-                    <a class="active" href="index-2.html">Home</a>
+                    <a class="active" href="index.php">Home</a>
                 </li>
                 <li>cart</li>
             </ul>
@@ -25,49 +27,80 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <?php
+                    if (isset($_GET['mes']) AND $_GET['mes'] != NULL) {
+                        echo "<h4 class='text-danger'>" . $_GET['mes'] . "</h4>";
+                    }
+                ?>
                 <form action="#">
                     <div class="table-content table-responsive">
                         <table>
                             <thead>
                                 <tr>
+                                    <th>SI</th>
                                     <th class="product-price">images</th>
-                                    <th class="product-name">Product</th>
+                                    <th class="product-name">Product Name</th>
                                     <th class="product-price">Price</th>
                                     <th class="product-quantity">Quantity</th>
                                     <th class="product-subtotal">Total</th>
-                                    <th class="product-name">remove</th>
+                                    <th class="product-name">Remove</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    $ct = new Cart();
+                                    $getPro = $ct->getCartProduct();
+                                    if ($getPro) {
+                                        $i = 0;
+                                        $sum = 0;
+                                      foreach ($getPro as $data) {
+                                        $i++;
+                                ?>
                                 <tr>
+                                    <td class="product-price"><?php echo($i); ?></td>
                                     <td class="product-thumbnail">
-                                        <a href="#"><img src="assets/img/cart/1.jpg" alt=""></a>
+                                        <a href="details.php?productId=<?php echo $data['productId'] ?>"><img src="Admin/<?php echo $data['image'] ?>" style="height: 75px; width: 75px;" alt=""></a>
                                     </td>
-                                    <td class="product-name"><a href="#">Product Title</a></td>
-                                    <td class="product-price"><span class="amount">$165.00</span></td>
+                                    <td class="product-name"><a href="details.php?productId=<?php echo $data['productId'] ?>"><?php echo $data['productName']; ?></a></td>
+                                    <td class="product-price"><span class="amount">$<?php echo $data['price']; ?></span></td>
                                     <td class="product-quantity">
-                                        <input value="1" type="number">
+                                        <input value="<?php echo $data['quantity']; ?>" type="number">
                                     </td>
-                                    <td class="product-subtotal">$165.00</td>
+                                    <td class="product-subtotal">$<?php
+                                        $total = ($data['price'] * $data['quantity']);
+                                        echo $total;
+                                        ?></td>
                                     <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
                                 </tr>
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="assets/img/cart/2.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Product Title</a></td>
-                                    <td class="product-price"><span class="amount">$150.00</span></td>
-                                    <td class="product-quantity">
-                                        <input value="1" type="number">
-                                    </td>
-                                    <td class="product-subtotal">$150.00</td>
-                                    <td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                </tr>
+                              <?php
+                                    $sum = $sum + $total;
+                                }}else{
+
+                              ?>
+                              <tr><td colspan="4"><h4>Data Not Found</h4></td></tr>
                             </tbody>
+                            <?php
+
+                              }
+
+                            ?>
                         </table>
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12 f-right">
+                <div class="cart-total">
+                    <div class="cart-total-btn">
+                        <div class="cart-total-btn2 f-right">
+                            <a href="shopPage.php">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         <div class="row mt-50">
             <div class="col-md-7 col-sm-12 col-xs-12">
@@ -150,8 +183,29 @@
             <div class="col-md-5 col-sm-12 col-xs-12">
                 <div class="cart-total">
                     <ul>
-                        <li>Subtotal<span>$315.00</span></li>
-                        <li class="cart-black">Total<span>$315.00</span></li>
+                        <li>Subtotal<span>$
+
+                            <?php
+                                if (isset($sum)) {
+                                    echo $sum;
+                                 }else{
+                                    echo "0";
+                                 }
+                            ?>
+                                
+                            </span></li>
+                        <li class="cart-black">Vat<span>5%</span></li>
+                        <li class="cart-black">Total<span>$
+                            <?php
+                                if (isset($sum)) {
+                                    $vat =($sum * 0.05);
+                                    echo($sum + $vat);
+                                }else{
+                                    echo "0";
+                                }
+                            ?>
+
+                            </span></li>
                     </ul>
                     <div class="cart-total-btn">
                         <div class="cart-total-btn1 f-left">

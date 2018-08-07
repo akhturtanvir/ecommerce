@@ -5,6 +5,14 @@
 <?php
     include_once "common/navbar.php";
 ?>
+<?php
+    if (!isset($_GET['productId']) || $_GET['productId'] == NULL) {
+        echo "<script>window.location = '404.php'</script";
+    }else{
+        $id = $_GET['productId'];
+    }
+?>
+
 <!-- breadcrumbs start -->
 <div class="breadcrumbs-area breadcrumb-bg ptb-100">
     <div class="container">
@@ -12,7 +20,7 @@
             <h2 class="breadcrumb-title">wishlist</h2>
             <ul>
                 <li>
-                    <a class="active" href="index-2.html">Home</a>
+                    <a class="active" href="index.php">Home</a>
                 </li>
                 <li>wishlist</li>
             </ul>

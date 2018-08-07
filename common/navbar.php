@@ -111,7 +111,7 @@
                                             <li><a href="index-4.html">home version 3 </a></li>
                                         </ul>
                                     </li>
-                                    <li class="mega-position"><a href="shop-page.php">Shop </a>
+                                    <li class="mega-position"><a href="shopPage.php">Shop </a>
                                         <div class="mega-menu mega-4-colm">
                                             <ul>
                                                 <li class="menu-title uppercase">Clothings</li>
@@ -144,7 +144,7 @@
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="mega-position"><a href="shop-page.php">man </a>
+                                    <li class="mega-position"><a href="shopPage.php">man </a>
                                         <div class="mega-menu mega-3-colm">
                                             <ul>
                                                 <li class="menu-title uppercase">Clothings</li>
